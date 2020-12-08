@@ -196,7 +196,7 @@ class Table {
         if(endgame) {
             this.gameEnded = true;
             this.mc = null;
-            gameOverMenuText.innerHTML = "Jucătorul " + (2 - this.playerToMove) + " câștigă!"
+            gameOverMenuText.innerHTML = "Player " + (2 - this.playerToMove) + " wins!"
             gameOverMenu.classList.add('show');
             this.update();
         }
