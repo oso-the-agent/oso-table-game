@@ -3,8 +3,9 @@ A **strategy-based** game developed in vanilla JavaScript. Nothing fancy in term
 
 ## Controls
 
-**Left Click** - place blocks / barriers
-**Scroll Wheel** - change direction (left-right / top-bottom)
+**Left Click** - place blocks / barriers;
+
+**Scroll Wheel** - change direction (left-right / top-bottom).
 
 ## License and Copyright
 
