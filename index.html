@@ -1,0 +1,133 @@
+<meta charset="UTF-8">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .anyMenu {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background:rgba(255,255,255, .65);
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .anyMenu.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .menu {
+        position: absolute;
+        background-color: #fff;
+        padding: 16px;
+        border: solid 2px #000;
+        border-radius: 24px;
+        width: 480px;
+        box-sizing: border-box;
+        transform: scale(0.9);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .anyMenu.show > .menu {
+        transform: none;
+    }
+
+    .menu > h1 {
+        text-align: center;
+        font-size: 32px;
+        line-height: 1;
+        margin: 36px 0 24px 0;
+    }
+
+    .menu > h2 {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1;
+        margin: 8px 0;
+        text-align: center;
+    }
+
+    .menu > h2 > input {
+        margin: 0;
+        font-size: 18px;
+        padding: 0;
+        width: 80px;
+    }
+
+    .menu > .btn {
+        display: block;
+        width: 70px;
+        height: 70px;
+        background-color: #b8b8b8;
+        margin: 36px auto;
+        cursor: pointer;
+    }
+
+    .menu > .btn > span {
+        background-color: #cfcfcf;
+        background-position-x: 6px;
+        background-position-y: 6px;
+        background-size: 54px;
+        background-repeat: no-repeat;
+        display: block;
+        width: 64px;
+        height: 64px;
+    }
+
+    .menu > .btn > span.play {
+        background-image: url('content/play.png');
+    }
+
+    .menu > .btn > span.replay {
+        background-image: url('content/replay.png');
+    }
+
+    .menu > .btn:hover {
+        background-color: #a2a2a2;
+    }
+
+    .menu > .btn:hover > span {
+        background-color: #b8b8b8;
+        display: block;
+    }
+</style>
+
+<html>
+	<head>
+		<title>Oso's Table Game</title>
+	</head>
+	<body>
+		<section id="gameSettings" class="anyMenu show">
+			<div class="menu">
+				<h1>Oso's Game</h1>
+				<h2>Linii: <input type="number" min="5" max="20" value="11" id="glines">&nbsp;&nbsp;&nbsp;Coloane: <input type="number" min="5" max="20" value="11" id="gcolumns"></h2>
+				<h2>Spargeri: <input type="number" min="1" max="5" value="2" id="gLCs"></h2>
+				<div class="btn" onclick="(new Audio('content/click_sound.mp3')).play(); startGame()">
+				    <span class="play"></span>
+				</div>
+			</div>
+		</section>
+		<section id="gameOverMenu" class="anyMenu">
+			<div class="menu">
+				<h1>Jucătorul X câștigă!</h1>
+			<div class="btn" onclick="var a = new Audio('content/click_sound.mp3'); a.play(); a.addEventListener('ended', (e)=>{location.reload();});">
+				    <span class="replay"></span>
+				</div>
+			</div>
+		</section>
+		<canvas></canvas><script src="index.js"></script>
+	</body>
+</html>
+
+
